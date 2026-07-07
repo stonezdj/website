@@ -66,7 +66,7 @@ You **can not** replicate from Harbor v1.x to v2.0 and later, and you **can not*
    {{< /note >}}
 
    ![Trigger mode](../../../img/replication-rule5.png)
-1. Optionally set the maximum network bandwidth for each replication task, please pay attention to the number of concurrent executions, the default value is 10 for each job-service pod. The unit is kilo bytes per second, and -1 stands for unlimited bandwith. 
+1. Optionally set the maximum network bandwidth for each replication task, please pay attention to the number of concurrent executions, the default value is 10 for each job-service pod. The unit is kilo bytes per second, and -1 stands for unlimited bandwidth. 
 
    ![Bandwidth](../../../img/replication-rule7.png)
 
@@ -82,6 +82,9 @@ You **can not** replicate from Harbor v1.x to v2.0 and later, and you **can not*
    {{< note >}}
    Copy by chunk has not been verified officially between harbor and other type registries. The default chunk size is 10MB, you can override it by setting env `REPLICATION_CHUNK_SIZE` in the jobservice, the value should be united as bytes, for example `10MB=1024*1024*10` then you should set `REPLICATION_CHUNK_SIZE=10485760`.
    {{< /note >}}
+1. Optionally select the Single active replication checkbox to enable skipping of executions until the previous active execution finishes, avoiding the execution of the same replication rules multiple times in parallel.
+   ![Single active replication](../../../img/replication-rule10.png)
+
 1. Click **Save** to create the replication rule.
 
 ## What to Do Next
